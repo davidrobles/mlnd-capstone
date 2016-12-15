@@ -177,14 +177,25 @@ using the formalism used by \cite{Mitchell1997Book} to define a machine learning
 
 \end{itemize}
 
+Therefore, I seek to build a Q-learning agent trained via a deep convolutional neural network to
+approximate the optimal action-value function:
+
+\begin{equation}
+Q^*(s,a) = \max\limits_\pi Q^\pi(s,a), \forall s \in \mathcal{S}, a \in \mathcal{A}
+\end{equation}
+
+\noindent which is the maximum sum of rewards achievable by a behaviour policy $\pi$.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Datasets and Inputs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This project will not use a dataset as part of the training, since an agent will use reinforcement
-learning to learn to play Connect 4 by playing games against itself. To generate the episodes a
-Connect 4 environment written in Python will be used. This environment is explained more in detail
-in \hyperref[sec:project-design]{Section \ref*{sec:project-design}}.
+learning to learn to play Connect 4 by playing games against itself. The state-space complexity of
+Connect 4 has been estimated at $10^{14}$. Also, it has an average branching factor of 4 and a
+game-tree complexity of approximately $4^{36} \approx 10^{21}$~\citep{Allis1994PhD}. To generate the
+episodes a Connect 4 environment written in Python will be used.  This environment is explained more
+in detail in \hyperref[sec:project-design]{Section \ref*{sec:project-design}}.
 
 However, as part of the testing phase, we will use the \emph{Connect 4 Data
 Set}\footnote{\url{https://archive.ics.uci.edu/ml/datasets/Connect-4}} that is available from the
